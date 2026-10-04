@@ -1,6 +1,11 @@
+import os
 import requests
 
-api_key = "2e5703c9fb85c37b56852a4d755673f3"
+# API anahtarı koda yazılmaz; ortam değişkeninden okunur.
+# Windows: setx OPENWEATHER_API_KEY "anahtarın"  (sonra terminali yeniden aç)
+api_key = os.environ.get("OPENWEATHER_API_KEY")
+if not api_key:
+    raise SystemExit("OPENWEATHER_API_KEY ortam değişkeni tanımlı değil.")
 
 sehir = input("Şehir adı girin: ")
 
